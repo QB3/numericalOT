@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Numerical Optimal Transport",
+    "objectID": "simplex.html",
+    "href": "simplex.html",
+    "title": "The Simplex Algorithm",
     "section": "",
-    "text": "This website hosts a course on the numerical aspects of optimal transport."
+    "text": "What is the simplex for?\nThe simplex algorithm solves linear problems in their standard form, i.e., the following type of optimization problems: \\[\\begin{align}\n    \\min_{x \\in \\mathbb{R}^n} \\; & c^T x\n    \\\\\n    \\text{s.t.} \\; & A x = b\n    \\\\\n    & x \\geq 0 \\enspace,\n\\end{align}\\] where \\(c \\in \\mathbb{R}^n\\), \\(b \\in \\mathbb{R}^m\\), and \\(A \\in \\mathbb{R}^{m \\times n}\\)."
   },
   {
     "objectID": "about.html",
@@ -12,5 +12,12 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Numerical Optimal Transport",
+    "section": "",
+    "text": "This website hosts a course on the numerical aspects of optimal transport."
   }
 ]
