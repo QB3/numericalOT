@@ -1,0 +1,18 @@
+---
+title: "The Simplex Algorithm"
+---
+
+### What is the simplex for?
+
+The simplex algorithm solves linear problems in their *standard form*, *i.e.*, the following type of optimization problems:
+\begin{align}
+    \min_{x \in \mathbb{R}^n} \; & c^T x
+    \\
+    \text{s.t.} \; & A x = b
+    \\
+    & x \geq 0 \enspace,
+\end{align}
+where $c \in \mathbb{R}^n$,
+$b \in \mathbb{R}^m$,
+and
+$A \in \mathbb{R}^{m \times n}$.
