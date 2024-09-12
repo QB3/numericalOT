@@ -146,6 +146,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#what-is-the-simplex-for" id="toc-what-is-the-simplex-for" class="nav-link active" data-scroll-target="#what-is-the-simplex-for">What is the simplex for?</a></li>
+  <li><a href="#the-optimality-conditions" id="toc-the-optimality-conditions" class="nav-link" data-scroll-target="#the-optimality-conditions">The Optimality Conditions</a></li>
   </ul>
 </nav>
     </div>
@@ -180,6 +181,24 @@ window.Quarto = {
     \\
     &amp; x \geq 0 \enspace,
 \end{align}\]</span> where <span class="math inline">\(c \in \mathbb{R}^n\)</span>, <span class="math inline">\(b \in \mathbb{R}^m\)</span>, and <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>.</p>
+<p>TODO illustration simplex problem</p>
+<p>TODO add unrolling box to show it solves …</p>
+</section>
+<section id="the-optimality-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="the-optimality-conditions">The Optimality Conditions</h3>
+<p>The Karusk-Kuhn-Tucker optimality conditions write: <span class="math display">\[\begin{align}
+    &amp; A^T \lambda + s = c
+    \\
+    &amp; Ax = b
+    \\
+    &amp; x \geq 0
+    \\
+    &amp; \mu \geq 0
+    \\
+    &amp; x_i \mu_i = 0 ,
+    \enspace \text{for } i \in 1, \dots, n
+    \enspace .
+\end{align}\]</span> Since the problem is convex, with linear equality and inequality constraints, the Karusk-Kuhn-Tucker conditions are necessary and sufficient for being a solution of the linear problem. In other words, if one can find a triplet <span class="math inline">\((x, \lambda, \mu)\)</span> that satisfies the KKT conditions, then an optimal point <span class="math inline">\(x\)</span>.</p>
 
 
 </section>
