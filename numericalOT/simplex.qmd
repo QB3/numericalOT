@@ -16,3 +16,27 @@ where $c \in \mathbb{R}^n$,
 $b \in \mathbb{R}^m$,
 and
 $A \in \mathbb{R}^{m \times n}$.
+
+
+TODO illustration simplex problem
+
+TODO add unrolling box to show it solves ...
+
+### The Optimality Conditions
+
+The Karusk-Kuhn-Tucker optimality conditions write:
+\begin{align}
+    & A^T \lambda + s = c
+    \\
+    & Ax = b
+    \\
+    & x \geq 0
+    \\
+    & \mu \geq 0
+    \\
+    & x_i \mu_i = 0 ,
+    \enspace \text{for } i \in 1, \dots, n
+    \enspace .
+\end{align}
+Since the problem is convex, with linear equality and inequality constraints, the Karusk-Kuhn-Tucker conditions are necessary and sufficient for being a solution of the linear problem.
+In other words, if one can find a triplet $(x, \lambda, \mu)$ that satisfies the KKT conditions, then an optimal point $x$.
