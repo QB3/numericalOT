@@ -1,0 +1,5 @@
+---
+title: "Numerical Optimal Transport"
+---
+
+This website hosts a course on the numerical aspects of optimal transport.
