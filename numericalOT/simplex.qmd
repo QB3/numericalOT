@@ -81,4 +81,4 @@ Pugging the value of $\lambda$ in Equation \ref{eq-KKT1} restricted to $\mathcal
 \end{align}
 
 Let's recap: a (non degenerated) basic feasible point yields $mu_{\mathcal{B}}=0$, which yields a unique dual variable $\lambda$, which a unique slack variable $ \mu_{\mathcal{B}^c}$.
-If in addition $\mu$ satisfies $\mu \geq 0$, then then triplet $(x, \lamdba, \mu)$ satisfies the KKT condition
+If in addition $\mu$ satisfies $\mu \geq 0$, then then triplet $(x, \lambda, \mu)$ satisfies the KKT condition
