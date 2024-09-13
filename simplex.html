@@ -97,7 +97,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="custom.css">
 </head>
 
 <body class="nav-fixed">
@@ -147,6 +147,10 @@ window.Quarto = {
   <ul>
   <li><a href="#what-is-the-simplex-for" id="toc-what-is-the-simplex-for" class="nav-link active" data-scroll-target="#what-is-the-simplex-for">What is the simplex for?</a></li>
   <li><a href="#the-optimality-conditions" id="toc-the-optimality-conditions" class="nav-link" data-scroll-target="#the-optimality-conditions">The Optimality Conditions</a></li>
+  <li><a href="#the-simplex-algorithm" id="toc-the-simplex-algorithm" class="nav-link" data-scroll-target="#the-simplex-algorithm">The Simplex Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#geometry-of-the-feasible-set" id="toc-geometry-of-the-feasible-set" class="nav-link" data-scroll-target="#geometry-of-the-feasible-set">Geometry of the Feasible Set</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -172,8 +176,8 @@ window.Quarto = {
 </header>
 
 
-<section id="what-is-the-simplex-for" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-the-simplex-for">What is the simplex for?</h3>
+<section id="what-is-the-simplex-for" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-simplex-for">What is the simplex for?</h2>
 <p>The simplex algorithm solves linear problems in their <em>standard form</em>, <em>i.e.</em>, the following type of optimization problems: <span class="math display">\[\begin{align}
     \min_{x \in \mathbb{R}^n} \; &amp; c^T x
     \\
@@ -184,9 +188,9 @@ window.Quarto = {
 <p>TODO illustration simplex problem</p>
 <p>TODO add unrolling box to show it solves …</p>
 </section>
-<section id="the-optimality-conditions" class="level3">
-<h3 class="anchored" data-anchor-id="the-optimality-conditions">The Optimality Conditions</h3>
-<p>The Karusk-Kuhn-Tucker optimality conditions write: <span class="math display">\[\begin{align}
+<section id="the-optimality-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="the-optimality-conditions">The Optimality Conditions</h2>
+<p>The Karusk-Kuhn-Tucker optimality conditions write, there exists <span class="math inline">\(x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m, \text{and } \mu \in \mathbb{R}^n\)</span> such that: <span class="math display">\[\begin{align}
     &amp; A^T \lambda + s = c
     \\
     &amp; Ax = b
@@ -198,9 +202,24 @@ window.Quarto = {
     &amp; x_i \mu_i = 0 ,
     \enspace \text{for } i \in 1, \dots, n
     \enspace .
-\end{align}\]</span> Since the problem is convex, with linear equality and inequality constraints, the Karusk-Kuhn-Tucker conditions are necessary and sufficient for being a solution of the linear problem. In other words, if one can find a triplet <span class="math inline">\((x, \lambda, \mu)\)</span> that satisfies the KKT conditions, then an optimal point <span class="math inline">\(x\)</span>.</p>
+\end{align}\]</span> Since the problem is convex, with linear equality and inequality constraints, the Karusk-Kuhn-Tucker conditions are necessary and sufficient for being a solution of the linear problem. In other words, if one can find a triplet <span class="math inline">\((x, \lambda, \mu)\)</span> that satisfies the KKT conditions, then <span class="math inline">\(x\)</span> is an optimal point.</p>
+</section>
+<section id="the-simplex-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="the-simplex-algorithm">The Simplex Algorithm</h2>
+<section id="geometry-of-the-feasible-set" class="level3">
+<h3 class="anchored" data-anchor-id="geometry-of-the-feasible-set">Geometry of the Feasible Set</h3>
+<div id="def-feasibleset" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Basic Feasible Point)</strong></span> <br></p>
+<p><span class="math inline">\(x\)</span> is a basic feasible point if there exists a <em>basis</em> <span class="math inline">\(\mathcal{B}\)</span> such that</p>
+<ul>
+<li><span class="math inline">\(|\mathcal{B}| = m\)</span></li>
+<li><span class="math inline">\(x_{\mathcal{B}^c} = 0\)</span>, <em>i.e.</em>, <span class="math inline">\(x_i = 0\)</span> if <span class="math inline">\(i \notin \mathcal{B}\)</span></li>
+<li><span class="math inline">\(A_{:\mathcal{B}}\)</span> is nonsingular, <em>i.e.</em>, the square matrix <span class="math inline">\(A_{:\mathcal{B}}\)</span> is full rank</li>
+</ul>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

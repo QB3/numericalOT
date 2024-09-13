@@ -4,6 +4,27 @@
     "href": "simplex.html",
     "title": "The Simplex Algorithm",
     "section": "",
-    "text": "What is the simplex for?\nThe simplex algorithm solves linear problems in their standard form, i.e., the following type of optimization problems: \\[\\begin{align}\n    \\min_{x \\in \\mathbb{R}^n} \\; & c^T x\n    \\\\\n    \\text{s.t.} \\; & A x = b\n    \\\\\n    & x \\geq 0 \\enspace,\n\\end{align}\\] where \\(c \\in \\mathbb{R}^n\\), \\(b \\in \\mathbb{R}^m\\), and \\(A \\in \\mathbb{R}^{m \\times n}\\).\nTODO illustration simplex problem\nTODO add unrolling box to show it solves …\n\n\nThe Optimality Conditions\nThe Karusk-Kuhn-Tucker optimality conditions write: \\[\\begin{align}\n    & A^T \\lambda + s = c\n    \\\\\n    & Ax = b\n    \\\\\n    & x \\geq 0\n    \\\\\n    & \\mu \\geq 0\n    \\\\\n    & x_i \\mu_i = 0 ,\n    \\enspace \\text{for } i \\in 1, \\dots, n\n    \\enspace .\n\\end{align}\\] Since the problem is convex, with linear equality and inequality constraints, the Karusk-Kuhn-Tucker conditions are necessary and sufficient for being a solution of the linear problem. In other words, if one can find a triplet \\((x, \\lambda, \\mu)\\) that satisfies the KKT conditions, then an optimal point \\(x\\)."
+    "text": "The simplex algorithm solves linear problems in their standard form, i.e., the following type of optimization problems: \\[\\begin{align}\n    \\min_{x \\in \\mathbb{R}^n} \\; & c^T x\n    \\\\\n    \\text{s.t.} \\; & A x = b\n    \\\\\n    & x \\geq 0 \\enspace,\n\\end{align}\\] where \\(c \\in \\mathbb{R}^n\\), \\(b \\in \\mathbb{R}^m\\), and \\(A \\in \\mathbb{R}^{m \\times n}\\).\nTODO illustration simplex problem\nTODO add unrolling box to show it solves …"
+  },
+  {
+    "objectID": "simplex.html#what-is-the-simplex-for",
+    "href": "simplex.html#what-is-the-simplex-for",
+    "title": "The Simplex Algorithm",
+    "section": "",
+    "text": "The simplex algorithm solves linear problems in their standard form, i.e., the following type of optimization problems: \\[\\begin{align}\n    \\min_{x \\in \\mathbb{R}^n} \\; & c^T x\n    \\\\\n    \\text{s.t.} \\; & A x = b\n    \\\\\n    & x \\geq 0 \\enspace,\n\\end{align}\\] where \\(c \\in \\mathbb{R}^n\\), \\(b \\in \\mathbb{R}^m\\), and \\(A \\in \\mathbb{R}^{m \\times n}\\).\nTODO illustration simplex problem\nTODO add unrolling box to show it solves …"
+  },
+  {
+    "objectID": "simplex.html#the-optimality-conditions",
+    "href": "simplex.html#the-optimality-conditions",
+    "title": "The Simplex Algorithm",
+    "section": "The Optimality Conditions",
+    "text": "The Optimality Conditions\nThe Karusk-Kuhn-Tucker optimality conditions write, there exists \\(x \\in \\mathbb{R}^n, \\lambda \\in \\mathbb{R}^m, \\text{and } \\mu \\in \\mathbb{R}^n\\) such that: \\[\\begin{align}\n    & A^T \\lambda + s = c\n    \\\\\n    & Ax = b\n    \\\\\n    & x \\geq 0\n    \\\\\n    & \\mu \\geq 0\n    \\\\\n    & x_i \\mu_i = 0 ,\n    \\enspace \\text{for } i \\in 1, \\dots, n\n    \\enspace .\n\\end{align}\\] Since the problem is convex, with linear equality and inequality constraints, the Karusk-Kuhn-Tucker conditions are necessary and sufficient for being a solution of the linear problem. In other words, if one can find a triplet \\((x, \\lambda, \\mu)\\) that satisfies the KKT conditions, then \\(x\\) is an optimal point."
+  },
+  {
+    "objectID": "simplex.html#the-simplex-algorithm",
+    "href": "simplex.html#the-simplex-algorithm",
+    "title": "The Simplex Algorithm",
+    "section": "The Simplex Algorithm",
+    "text": "The Simplex Algorithm\n\nGeometry of the Feasible Set\n\nDefinition 1 (Basic Feasible Point) \n\\(x\\) is a basic feasible point if there exists a basis \\(\\mathcal{B}\\) such that\n\n\\(|\\mathcal{B}| = m\\)\n\\(x_{\\mathcal{B}^c} = 0\\), i.e., \\(x_i = 0\\) if \\(i \\notin \\mathcal{B}\\)\n\\(A_{:\\mathcal{B}}\\) is nonsingular, i.e., the square matrix \\(A_{:\\mathcal{B}}\\) is full rank"
   }
 ]
