@@ -2,7 +2,7 @@
 title: "The Simplex Algorithm"
 ---
 
-### What is the simplex for?
+## What is the simplex for?
 
 The simplex algorithm solves linear problems in their *standard form*, *i.e.*, the following type of optimization problems:
 \begin{align}
@@ -22,9 +22,10 @@ TODO illustration simplex problem
 
 TODO add unrolling box to show it solves ...
 
-### The Optimality Conditions
+## The Optimality Conditions
 
-The Karusk-Kuhn-Tucker optimality conditions write:
+The Karusk-Kuhn-Tucker optimality conditions write, there exists
+$x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m, \text{and } \mu \in \mathbb{R}^n$ such that:
 \begin{align}
     & A^T \lambda + s = c
     \\
@@ -39,4 +40,20 @@ The Karusk-Kuhn-Tucker optimality conditions write:
     \enspace .
 \end{align}
 Since the problem is convex, with linear equality and inequality constraints, the Karusk-Kuhn-Tucker conditions are necessary and sufficient for being a solution of the linear problem.
-In other words, if one can find a triplet $(x, \lambda, \mu)$ that satisfies the KKT conditions, then an optimal point $x$.
+In other words, if one can find a triplet $(x, \lambda, \mu)$ that satisfies the KKT conditions, then $x$ is an optimal point.
+
+## The Simplex Algorithm
+
+### Geometry of the Feasible Set
+
+::: {#def-feasibleset}
+#### Basic Feasible Point
+
+<br>
+
+$x$ is a basic feasible point if there exists a *basis* $\mathcal{B}$ such that
+
+-  $|\mathcal{B}| = m$
+-  $x_{\mathcal{B}^c} = 0$, *i.e.*,  $x_i = 0$ if $i \notin \mathcal{B}$
+-  $A_{:\mathcal{B}}$ is nonsingular, *i.e.*, the square matrix $A_{:\mathcal{B}}$ is full rank
+:::
