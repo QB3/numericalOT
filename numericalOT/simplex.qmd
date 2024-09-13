@@ -8,7 +8,7 @@ The simplex algorithm solves linear problems in their *standard form*, *i.e.*, t
 \begin{align}
     \min_{x \in \mathbb{R}^n} \; & c^T x
     \\
-    \text{s.t.} \; & A x = b
+    \text{s.t.} \; & A x = b \tag{Primal}\label{eq_primal}
     \\
     & x \geq 0 \enspace,
 \end{align}
@@ -27,7 +27,7 @@ TODO add unrolling box to show it solves ...
 The Karusk-Kuhn-Tucker optimality conditions write, there exists
 $x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m, \text{and } \mu \in \mathbb{R}^n$ such that:
 \begin{align}
-    & A^T \lambda + s = c
+    & A^T \lambda + \mu = c \tag{KKT-1}\label{eq-KKT1}
     \\
     & Ax = b
     \\
@@ -35,7 +35,7 @@ $x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m, \text{and } \mu \in \mathbb{R}^n$
     \\
     & \mu \geq 0
     \\
-    & x_i \mu_i = 0 ,
+    & x_i \mu_i = 0 , \tag{Complementary Slackness}\label{eq-complslackness}
     \enspace \text{for } i \in 1, \dots, n
     \enspace .
 \end{align}
@@ -57,3 +57,28 @@ $x$ is a basic feasible point if there exists a *basis* $\mathcal{B}$ such that
 -  $x_{\mathcal{B}^c} = 0$, *i.e.*,  $x_i = 0$ if $i \notin \mathcal{B}$
 -  $A_{:\mathcal{B}}$ is nonsingular, *i.e.*, the square matrix $A_{:\mathcal{B}}$ is full rank
 :::
+
+### Outline
+
+Let's start from a basic feasible point $x \in \mathbb{R}^n$, and let's try to find a triplet $(x, \lambda, \mu)$ that satisifies the KKT conditions.
+
+- $x$ is a (non generated) basic feasible point, hence $x_i \neq 0$ for $i \in \mathcal{B}$, thus Equation \ref{eq-complslackness} yields
+    \begin{align}
+        \mu_i = 0 \text{ for } i \in \mathcal{B}
+        \enspace.
+    \end{align}
+- The latest equation combined with the Equation \ref{eq-KKT1} yields
+\begin{align}
+    & A_{:\mathcal{B}}^T \lambda + \overbrace{\mu_{\mathcal{B}}}^{=0} = c_{\mathcal{B}}
+    \\
+    & \lambda = (A_{:\mathcal{B}}^T)^{-1} c_{\mathcal{B}}
+    \enspace .
+\end{align}
+Pugging the value of $\lambda$ in Equation \ref{eq-KKT1} restricted to $\mathcal{B}$ yields
+\begin{align}
+    \mu_{\mathcal{B}^c} = c_{\mathcal{B}^c} - A_{\mathcal{B}^c}^T (A_{:\mathcal{B}}^T)^{-1} c_{\mathcal{B}}^c
+    \enspace .
+\end{align}
+
+Let's recap: a (non degenerated) basic feasible point yields $mu_{\mathcal{B}}=0$, which yields a unique dual variable $\lambda$, which a unique slack variable $ \mu_{\mathcal{B}^c}$.
+If in addition $\mu$ satisfies $\mu \geq 0$, then then triplet $(x, \lamdba, \mu)$ satisfies the KKT condition
