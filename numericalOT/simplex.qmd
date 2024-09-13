@@ -74,7 +74,7 @@ Let's start from a basic feasible point $x \in \mathbb{R}^n$, and let's try to f
     & \lambda = (A_{:\mathcal{B}}^T)^{-1} c_{\mathcal{B}}
     \enspace .
 \end{align}
-Pugging the value of $\lambda$ in Equation \ref{eq-KKT1} restricted to $\mathcal{B}$ yields
+- Pugging the value of $\lambda$ in Equation \ref{eq-KKT1} restricted to $\mathcal{B}$ yields
 \begin{align}
     \mu_{\mathcal{B}^c} = c_{\mathcal{B}^c} - A_{\mathcal{B}^c}^T (A_{:\mathcal{B}}^T)^{-1} c_{\mathcal{B}}^c
     \enspace .
