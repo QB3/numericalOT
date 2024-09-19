@@ -234,16 +234,16 @@ window.Quarto = {
   &amp; \lambda = (A_{:\mathcal{B}}^T)^{-1} c_{\mathcal{B}}
   \enspace .
 \end{align}\]</span></li>
-<li>Pugging the value of <span class="math inline">\(\lambda\)</span> in Equation <span class="math inline">\(\ref{eq-KKT1}\)</span> restricted to <span class="math inline">\(\mathcal{B}\)</span> yields <span class="math display">\[\begin{align}
+<li>Pugging the value of <span class="math inline">\(\lambda\)</span> in Equation <span class="math inline">\(\ref{eq-KKT1}\)</span> restricted to <span class="math inline">\(\mathcal{B}^c\)</span> yields <span class="math display">\[\begin{align}
   \mu_{\mathcal{B}^c} = c_{\mathcal{B}^c} - A_{\mathcal{B}^c}^T (A_{:\mathcal{B}}^T)^{-1} c_{\mathcal{B}}^c
   \enspace .
 \end{align}\]</span></li>
 </ul>
-<p>Let’s recap: we started from a (non degenerated) basic feasible point <span class="math inline">\(x\)</span>: the complementary slackness yields <span class="math inline">\(\mu_{\mathcal{B}}=0\)</span>, which yields a unique dual variable <span class="math inline">\(\lambda\)</span>, which a unique slack variable <span class="math inline">\(\mu_{\mathcal{B}^c}\)</span> using the KKT conditions.</p>
+<p>Let’s recap: we started from a (non degenerated) basic feasible point <span class="math inline">\(x\)</span>: the complementary slackness yields <span class="math inline">\(\mu_{\mathcal{B}}=0\)</span>, which yields a unique dual variable <span class="math inline">\(\lambda\)</span>, which yields a unique slack variable <span class="math inline">\(\mu_{\mathcal{B}^c}\)</span> using the KKT conditions.</p>
 <ul>
 <li>If in addition <span class="math inline">\(\mu\)</span> satisfies <span class="math inline">\(\mu \geq 0\)</span>, then then triplet <span class="math inline">\((x, \lambda, \mu)\)</span> satisfies all the KKT conditions. We can stop here!</li>
 <li>If not, let’s pick an index <span class="math inline">\(q \in \mathcal{B}^c\)</span> such that <span class="math inline">\(\mu_{q} &lt; 0\)</span>, and make it non zero.</li>
-<li>Question: how to updtae the entry <span class="math inline">\(x_q\)</span>? Given that the new point has to statify the equlity constraint <span class="math inline">\(Ax = b\)</span> and the positivity constraint <span class="math inline">\(x \geq 0\)</span>.</li>
+<li>Question: how to updtae the entry <span class="math inline">\(x_q\)</span>? Given that the new point has to statify the equlity constraint <span class="math inline">\(Ax = b\)</span> and the positivity constraint <span class="math inline">\(x \geq 0\)</span>?</li>
 </ul>
 
 
