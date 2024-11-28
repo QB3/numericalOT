@@ -336,7 +336,7 @@ TODO add unrolling box to show it solves ... -->
 </section>
 <section id="the-simplex-algorithm" class="level2">
 <h2 class="anchored" data-anchor-id="the-simplex-algorithm">The Simplex Algorithm</h2>
-<div class="pseudocode-container quarto-float" data-pseudocode-number="1" data-line-number="true" data-caption-prefix="Algorithm" data-comment-delimiter="//" data-indent-size="1.2em" data-no-end="false" data-line-number-punc=":">
+<div class="pseudocode-container quarto-float" data-line-number="true" data-indent-size="1.2em" data-pseudocode-number="1" data-no-end="false" data-comment-delimiter="//" data-line-number-punc=":" data-caption-prefix="Algorithm">
 <div class="pseudocode">
 \begin{algorithm} \caption{Revised Simplex $(A, x_0, n_{\mathrm{iter}} )$} \begin{algorithmic} \For{$i \in 0, \dots, n_{\mathrm{iter}} $} \State $\lambda = (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}}$ \State $\mu_{\mathcal{B}^c} = c_{\mathcal{B}^c} - A_{\mathcal{B}^c}^\top (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}} $ \IF{$\mu_j \geq 0$} \State Return $x^{t}$ \ENDIF \State $q \in \arg \min_{j \in \mathcal{B}^c} \, \mu_{j} $ \State $d = A_{:\mathcal{B}}^{-1} A_{:q}$ \IF{ for all $i \in \mathcal{B}$, $d_i \leq 0$} \State Stop (the linear program is unbounded) \ENDIF \State $ x_q^{t+1} = \min_{i \in \mathcal{B} | d_i &gt; 0} \frac{x_i}{d_i} $ \State $x_{\mathcal{B}}^{t+1} = x_{\mathcal{B}}^{t} - x_q^{t+1} \cdot d$ \EndFor \Return x \end{algorithmic} \end{algorithm}
 </div>
@@ -349,6 +349,7 @@ TODO add unrolling box to show it solves ... -->
 <li>Networks Flows: https://feog.github.io/chap3dm.pdf</li>
 <li>Linear Programming: https://feog.github.io/chap4dm.pdf</li>
 <li>Network Simplex: https://feog.github.io/chap5dm.pdf</li>
+<li>Network Simplex: Vanderbei, R. J. (1998). <em>Linear programming: foundations and extensions</em>. Journal of the Operational Research Society,</li>
 </ul>
 
 
@@ -1011,7 +1012,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The Revised Simplex: Chapter 13 of Nocedal and Wright, *Numerical optimization*. New York, NY: Springer New York, 1999.</span>
 <span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Networks Flows: https://feog.github.io/chap3dm.pdf</span>
 <span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Linear Programming: https://feog.github.io/chap4dm.pdf</span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Network Simplex: https://feog.github.io/chap5dm.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Network Simplex: https://feog.github.io/chap5dm.pdf</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Network Simplex: Vanderbei, R. J. (1998). *Linear programming: foundations and extensions*. Journal of the Operational Research Society,</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
     <script type="text/javascript">

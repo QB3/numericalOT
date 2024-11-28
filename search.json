@@ -39,6 +39,6 @@
     "href": "simplex.html#references",
     "title": "The (Revised) Simplex Algorithm: the Gist",
     "section": "References",
-    "text": "References\n\nThe Revised Simplex: Chapter 13 of Nocedal and Wright, Numerical optimization. New York, NY: Springer New York, 1999.\nNetworks Flows: https://feog.github.io/chap3dm.pdf\nLinear Programming: https://feog.github.io/chap4dm.pdf\nNetwork Simplex: https://feog.github.io/chap5dm.pdf"
+    "text": "References\n\nThe Revised Simplex: Chapter 13 of Nocedal and Wright, Numerical optimization. New York, NY: Springer New York, 1999.\nNetworks Flows: https://feog.github.io/chap3dm.pdf\nLinear Programming: https://feog.github.io/chap4dm.pdf\nNetwork Simplex: https://feog.github.io/chap5dm.pdf\nNetwork Simplex: Vanderbei, R. J. (1998). Linear programming: foundations and extensions. Journal of the Operational Research Society,"
   }
 ]
