@@ -336,7 +336,7 @@ TODO add unrolling box to show it solves ... -->
 </section>
 <section id="the-simplex-algorithm" class="level2">
 <h2 class="anchored" data-anchor-id="the-simplex-algorithm">The Simplex Algorithm</h2>
-<div class="pseudocode-container quarto-float" data-line-number="true" data-indent-size="1.2em" data-pseudocode-number="1" data-no-end="false" data-comment-delimiter="//" data-line-number-punc=":" data-caption-prefix="Algorithm">
+<div class="pseudocode-container quarto-float" data-line-number-punc=":" data-indent-size="1.2em" data-comment-delimiter="//" data-caption-prefix="Algorithm" data-no-end="false" data-line-number="true" data-pseudocode-number="1">
 <div class="pseudocode">
 \begin{algorithm} \caption{Revised Simplex $(A, x_0, n_{\mathrm{iter}} )$} \begin{algorithmic} \For{$i \in 0, \dots, n_{\mathrm{iter}} $} \State $\lambda = (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}}$ \State $\mu_{\mathcal{B}^c} = c_{\mathcal{B}^c} - A_{\mathcal{B}^c}^\top (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}} $ \IF{$\mu_j \geq 0$} \State Return $x^{t}$ \ENDIF \State $q \in \arg \min_{j \in \mathcal{B}^c} \, \mu_{j} $ \State $d = A_{:\mathcal{B}}^{-1} A_{:q}$ \IF{ for all $i \in \mathcal{B}$, $d_i \leq 0$} \State Stop (the linear program is unbounded) \ENDIF \State $ x_q^{t+1} = \min_{i \in \mathcal{B} | d_i &gt; 0} \frac{x_i}{d_i} $ \State $x_{\mathcal{B}}^{t+1} = x_{\mathcal{B}}^{t} - x_q^{t+1} \cdot d$ \EndFor \Return x \end{algorithmic} \end{algorithm}
 </div>
