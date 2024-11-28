@@ -189,8 +189,9 @@ window.Quarto = {
   <li><a href="#geometry-of-the-feasible-set" id="toc-geometry-of-the-feasible-set" class="nav-link" data-scroll-target="#geometry-of-the-feasible-set">Geometry of the Feasible Set</a></li>
   <li><a href="#index-selection" id="toc-index-selection" class="nav-link" data-scroll-target="#index-selection">Index Selection</a></li>
   <li><a href="#update-rule" id="toc-update-rule" class="nav-link" data-scroll-target="#update-rule">Update Rule</a></li>
-  <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm">Algorithm</a></li>
   </ul></li>
+  <li><a href="#the-simplex-algorithm" id="toc-the-simplex-algorithm" class="nav-link" data-scroll-target="#the-simplex-algorithm">The Simplex Algorithm</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
 </nav>
@@ -235,8 +236,10 @@ window.Quarto = {
     \\
     &amp; x \geq 0 \enspace,
 \end{align}\]</span> where <span class="math inline">\(c \in \mathbb{R}^n\)</span>, <span class="math inline">\(b \in \mathbb{R}^m\)</span>, and <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span>.</p>
-<p>TODO illustration simplex problem</p>
-<p>TODO add unrolling box to show it solves …</p>
+<!--
+TODO illustration simplex problem
+
+TODO add unrolling box to show it solves ... -->
 </section>
 <section id="the-optimality-conditions" class="level2">
 <h2 class="anchored" data-anchor-id="the-optimality-conditions">The Optimality Conditions</h2>
@@ -329,20 +332,28 @@ window.Quarto = {
 </p>
 </div>
 <p>with <span class="math inline">\(d:= A_{:\mathcal{B}}^{-1} A_{:q}\)</span> (<span class="math inline">\(d\)</span> stands for direction of the update).</p>
-<p>test</p>
 </section>
-<section id="algorithm" class="level3">
-<h3 class="anchored" data-anchor-id="algorithm">Algorithm</h3>
-<div class="pseudocode-container quarto-float" data-pseudocode-number="1" data-indent-size="1.2em" data-line-number="true" data-line-number-punc=":" data-caption-prefix="Algorithm" data-no-end="false" data-comment-delimiter="//">
+</section>
+<section id="the-simplex-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="the-simplex-algorithm">The Simplex Algorithm</h2>
+<div class="pseudocode-container quarto-float" data-pseudocode-number="1" data-line-number="true" data-caption-prefix="Algorithm" data-comment-delimiter="//" data-indent-size="1.2em" data-no-end="false" data-line-number-punc=":">
 <div class="pseudocode">
-\begin{algorithm} \caption{(Revised) Simplex} \begin{algorithmic} \Procedure{Simplex}{$A, c, x_0$} \For{$i \in 0, \dots, n_{\mathrm{iter}} $} \State $\lambda = (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}}$ \State $\mu_{\mathcal{B}^c} = c_{\mathcal{B}^c} - A_{\mathcal{B}^c}^\top (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}} $ \IF{$\mu_j \geq 0$} \State Return $x^{t}$ \ENDIF \State $q \in \arg \min_{j \in \mathcal{B}^c} \, \mu_{j} $ \State $d = A_{:\mathcal{B}}^{-1} A_{:q}$ \State $ x_q^{t+1} = \min_{i \in \mathcal{B} | d_i &gt; 0} \frac{x_i}{d_i} $ \State $x_{\mathcal{B}}^{t+1} = x_{\mathcal{B}}^{t} - x_q^{t+1} \cdot d$ \EndFor \Return x \EndProcedure \end{algorithmic} \end{algorithm}
+\begin{algorithm} \caption{Revised Simplex $(A, x_0, n_{\mathrm{iter}} )$} \begin{algorithmic} \For{$i \in 0, \dots, n_{\mathrm{iter}} $} \State $\lambda = (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}}$ \State $\mu_{\mathcal{B}^c} = c_{\mathcal{B}^c} - A_{\mathcal{B}^c}^\top (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}} $ \IF{$\mu_j \geq 0$} \State Return $x^{t}$ \ENDIF \State $q \in \arg \min_{j \in \mathcal{B}^c} \, \mu_{j} $ \State $d = A_{:\mathcal{B}}^{-1} A_{:q}$ \IF{ for all $i \in \mathcal{B}$, $d_i \leq 0$} \State Stop (the linear program is unbounded) \ENDIF \State $ x_q^{t+1} = \min_{i \in \mathcal{B} | d_i &gt; 0} \frac{x_i}{d_i} $ \State $x_{\mathcal{B}}^{t+1} = x_{\mathcal{B}}^{t} - x_q^{t+1} \cdot d$ \EndFor \Return x \end{algorithmic} \end{algorithm}
 </div>
 </div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>The Revised Simplex: Chapter 13 of Nocedal and Wright, <em>Numerical optimization</em>. New York, NY: Springer New York, 1999.</li>
+<li>Networks Flows: https://feog.github.io/chap3dm.pdf</li>
+<li>Linear Programming: https://feog.github.io/chap4dm.pdf</li>
+<li>Network Simplex: https://feog.github.io/chap5dm.pdf</li>
+</ul>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -841,10 +852,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>and</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>$A \in \mathbb{R}^{m \times n}$.</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>TODO illustration simplex problem</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="al">TODO</span><span class="co"> illustration simplex problem</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>TODO add unrolling box to show it solves ...</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="al">TODO</span><span class="co"> add unrolling box to show it solves ... --&gt;</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Optimality Conditions</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
@@ -958,41 +969,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>with $d:= A_{:\mathcal{B}}^{-1} A_{:q}$ ($d$ stands for direction of the update).</span>
 <span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>test</span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="fu">### Algorithm</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Simplex Algorithm</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="in">```pseudocode</span></span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-indent-size: "1.2em"</span></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-comment-delimiter: "//"</span></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-line-number: true</span></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-line-number-punc: ":"</span></span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-no-end: false</span></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="in">#| pdf-placement: "htb!"</span></span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="in">#| pdf-line-number: true</span></span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">\begin{algorithm}</span></span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="in">\caption{(Revised) Simplex}</span></span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="in">\begin{algorithmic}</span></span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="in">\Procedure{Simplex}{$A, c, x_0$}</span></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="in">  \For{$i \in 0, \dots, n_{\mathrm{iter}} $}</span></span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $\lambda = (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}}$</span></span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $\mu_{\mathcal{B}^c} = c_{\mathcal{B}^c} - A_{\mathcal{B}^c}^\top (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}} $</span></span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="in">      \IF{$\mu_j \geq 0$}</span></span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="in">        \State Return $x^{t}$</span></span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="in">      \ENDIF</span></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $q  \in \arg \min_{j \in \mathcal{B}^c}  \, \mu_{j} $</span></span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $d = A_{:\mathcal{B}}^{-1} A_{:q}$</span></span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $ x_q^{t+1} = \min_{i \in \mathcal{B} | d_i &gt; 0} \frac{x_i}{d_i} $</span></span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $x_{\mathcal{B}}^{t+1}</span></span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="in">              = x_{\mathcal{B}}^{t} - x_q^{t+1} \cdot d$</span></span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="in">  \EndFor</span></span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="in">  \Return x</span></span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="in">\EndProcedure</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="in">```pseudocode</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-indent-size: "1.2em"</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-comment-delimiter: "//"</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-line-number: true</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-line-number-punc: ":"</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="in">#| html-no-end: false</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="in">#| pdf-placement: "htb!"</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="in">#| pdf-line-number: true</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">\begin{algorithm}</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">\caption{Revised Simplex $(A, x_0, n_{\mathrm{iter}} )$}</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="in">\begin{algorithmic}</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="in">  \For{$i \in 0, \dots, n_{\mathrm{iter}} $}</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $\lambda = (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}}$</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $\mu_{\mathcal{B}^c} = c_{\mathcal{B}^c} - A_{\mathcal{B}^c}^\top (A_{:\mathcal{B}}^\top)^{-1} c_{\mathcal{B}} $</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="in">      \IF{$\mu_j \geq 0$}</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="in">        \State Return $x^{t}$</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="in">      \ENDIF</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $q  \in \arg \min_{j \in \mathcal{B}^c}  \, \mu_{j} $</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $d = A_{:\mathcal{B}}^{-1} A_{:q}$</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="in">      \IF{ for all $i \in \mathcal{B}$, $d_i \leq 0$}</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="in">        \State Stop (the linear program is unbounded)</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="in">      \ENDIF</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $ x_q^{t+1} = \min_{i \in \mathcal{B} | d_i &gt; 0} \frac{x_i}{d_i} $</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="in">      \State $x_{\mathcal{B}}^{t+1}</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="in">              = x_{\mathcal{B}}^{t} - x_q^{t+1} \cdot d$</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="in">  \EndFor</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="in">  \Return x</span></span>
 <span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="in">\end{algorithmic}</span></span>
 <span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="in">\end{algorithm}</span></span>
-<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The Revised Simplex: Chapter 13 of Nocedal and Wright, *Numerical optimization*. New York, NY: Springer New York, 1999.</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Networks Flows: https://feog.github.io/chap3dm.pdf</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Linear Programming: https://feog.github.io/chap4dm.pdf</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Network Simplex: https://feog.github.io/chap5dm.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
     <script type="text/javascript">
